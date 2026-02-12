@@ -190,7 +190,11 @@ def main(action: str, contract_name: str | None = None) -> None:
                     raise Exception("Could not deploy app, .arc56.json file not found")
                 if contract.deploy:
                     logger.info(f"Deploying app {contract.name}")
-                    contract.deploy()
+                    # contract.deploy()
+                try:
+                     contract.deploy()
+                except Exception as e:
+                    print(f"Skipping deployment error for {contract.name}: {e}")
         case "all":
             for contract in filtered_contracts:
                 logger.info(f"Building app at {contract.path}")

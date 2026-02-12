@@ -7,15 +7,17 @@ logger = logging.getLogger(__name__)
 
 # define deployment behaviour based on supplied app spec
 def deploy() -> None:
-    from smart_contracts.artifacts.counter.counter_client import (
-        CounterFactory,
+    # Change this import to match the new file name created by your build
+    from smart_contracts.artifacts.counter.club_voting_client import (
+        ClubVotingFactory,
     )
 
     algorand = algokit_utils.AlgorandClient.from_environment()
     deployer_ = algorand.account.from_environment("DEPLOYER")
 
+    # Change CounterFactory to ClubVotingFactory
     factory = algorand.client.get_typed_app_factory(
-        CounterFactory, default_sender=deployer_.address
+        ClubVotingFactory, default_sender=deployer_.address
     )
 
     app_client, result = factory.deploy(
@@ -35,5 +37,5 @@ def deploy() -> None:
             )
         )
         logger.info(
-            f"Deployed Counter app {app_client.app_id} to address {app_client.app_address}"
+            f"Deployed ClubVoting app {app_client.app_id} to address {app_client.app_address}"
         )

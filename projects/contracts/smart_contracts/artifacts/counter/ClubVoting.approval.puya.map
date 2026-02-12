@@ -1,0 +1,968 @@
+{
+  "version": 3,
+  "sources": [
+    "../../counter/contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAyBQ;AAAa;;AAAb;AAJR;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;;AAgBK;;AAAA;AAAA;AAAA;;AAAA;AAhBL;;;AAAA;;;AAAA;;;AAAA;;;AAgBK;;;AAAA;;AAVA;;AAAA;AAAA;AAAA;;AAAA;AANL;;;AAAA;;;AAAA;;;AAAA;;;AAMK;;;AAAA;;AANL;;AAAA;;;;;;;;;AAMA;;;AAGe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AAEG;;AAAY;AAAZ;AAAX;;;AACY;AAAA;;AAAA;AAAwB;AAAxB;AAAA;;AACC;;AAAY;AAAZ;AAAb;;;AACY;;AAAA;;AAAA;AAAyB;AAAzB;AAAA;;AAEZ;;;AAEW;;AAAY;AAAZ;AAAX;;;AACY;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAyB;AAAzB;AAAA;AAAA;;AACC;;AAAY;AAAZ;AAAb;;;AACY;;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAA0B;AAA1B;AAAA;AAAA;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.counter.contract.ClubVoting.__algopy_entrypoint_with_init",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0"
+    },
+    "5": {
+      "op": "bytecblock \"admin\" \"President\" \"presidents\" \"Secretary\" \"secretaries\""
+    },
+    "56": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "58": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "61": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\""
+      ],
+      "stack_out": [
+        "\"admin\""
+      ]
+    },
+    "62": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "\"admin\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"admin\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "64": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "65": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "tmp%0#2"
+      ]
+    },
+    "67": {
+      "op": "bz main_bare_routing@7",
+      "stack_out": []
+    },
+    "70": {
+      "op": "pushbytess 0x9039b6e2 0xe9d83c6d // method \"add_candidate(string,string)void\", method \"vote(string,string)void\"",
+      "defined_out": [
+        "Method(add_candidate(string,string)void)",
+        "Method(vote(string,string)void)"
+      ],
+      "stack_out": [
+        "Method(add_candidate(string,string)void)",
+        "Method(vote(string,string)void)"
+      ]
+    },
+    "82": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(add_candidate(string,string)void)",
+        "Method(vote(string,string)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(add_candidate(string,string)void)",
+        "Method(vote(string,string)void)",
+        "tmp%2#0"
+      ]
+    },
+    "85": {
+      "op": "match main_add_candidate_route@5 main_vote_route@6",
+      "stack_out": []
+    },
+    "91": {
+      "block": "main_after_if_else@9",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "92": {
+      "op": "return",
+      "stack_out": []
+    },
+    "93": {
+      "block": "main_vote_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "95": {
+      "op": "!",
+      "defined_out": [
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%12#0"
+      ]
+    },
+    "96": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "97": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "99": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "100": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "103": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%16#0"
+      ]
+    },
+    "106": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%16#0",
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%16#0",
+        "tmp%17#0"
+      ]
+    },
+    "109": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%16#0",
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%16#0",
+        "tmp%18#0"
+      ]
+    },
+    "112": {
+      "callsub": "smart_contracts.counter.contract.ClubVoting.vote",
+      "op": "callsub vote",
+      "stack_out": []
+    },
+    "115": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "116": {
+      "op": "return",
+      "stack_out": []
+    },
+    "117": {
+      "block": "main_add_candidate_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "119": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "120": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "121": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "123": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "124": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "127": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "130": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "133": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0"
+      ]
+    },
+    "136": {
+      "callsub": "smart_contracts.counter.contract.ClubVoting.add_candidate",
+      "op": "callsub add_candidate",
+      "stack_out": []
+    },
+    "139": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "140": {
+      "op": "return",
+      "stack_out": []
+    },
+    "141": {
+      "block": "main_bare_routing@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "143": {
+      "op": "bnz main_after_if_else@9",
+      "stack_out": []
+    },
+    "146": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "148": {
+      "op": "!",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "149": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "150": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "151": {
+      "op": "return",
+      "stack_out": []
+    },
+    "152": {
+      "subroutine": "smart_contracts.counter.contract.ClubVoting.add_candidate",
+      "params": {
+        "name#0": "bytes",
+        "position#0": "bytes"
+      },
+      "block": "add_candidate",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "155": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "157": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "158": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"admin\""
+      ]
+    },
+    "159": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "160": {
+      "error": "check self.admin exists",
+      "op": "assert // check self.admin exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "161": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "162": {
+      "error": "Only the admin can add candidates",
+      "op": "assert // Only the admin can add candidates",
+      "stack_out": []
+    },
+    "163": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)"
+      ]
+    },
+    "165": {
+      "op": "bytec_1 // \"President\"",
+      "defined_out": [
+        "\"President\"",
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)",
+        "\"President\""
+      ]
+    },
+    "166": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "167": {
+      "op": "bz add_candidate_else_body@2",
+      "stack_out": []
+    },
+    "170": {
+      "op": "bytec_2 // \"presidents\"",
+      "defined_out": [
+        "\"presidents\""
+      ],
+      "stack_out": [
+        "\"presidents\""
+      ]
+    },
+    "171": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "\"presidents\"",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "\"presidents\"",
+        "name#0 (copy)"
+      ]
+    },
+    "173": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "174": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "tmp%3#0",
+        "0"
+      ]
+    },
+    "175": {
+      "op": "itob",
+      "defined_out": [
+        "new_box_value%0#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "new_box_value%0#0"
+      ]
+    },
+    "176": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "177": {
+      "block": "add_candidate_after_if_else@5",
+      "stack_in": [],
+      "retsub": true,
+      "op": "retsub"
+    },
+    "178": {
+      "block": "add_candidate_else_body@2",
+      "stack_in": [],
+      "op": "frame_dig -1",
+      "defined_out": [
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)"
+      ]
+    },
+    "180": {
+      "op": "bytec_3 // \"Secretary\"",
+      "defined_out": [
+        "\"Secretary\"",
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)",
+        "\"Secretary\""
+      ]
+    },
+    "181": {
+      "op": "==",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "182": {
+      "op": "bz add_candidate_after_if_else@5",
+      "stack_out": []
+    },
+    "185": {
+      "op": "bytec 4 // \"secretaries\"",
+      "defined_out": [
+        "\"secretaries\""
+      ],
+      "stack_out": [
+        "\"secretaries\""
+      ]
+    },
+    "187": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "\"secretaries\"",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "\"secretaries\"",
+        "name#0 (copy)"
+      ]
+    },
+    "189": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "190": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "0"
+      ]
+    },
+    "191": {
+      "op": "itob",
+      "defined_out": [
+        "new_box_value%1#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "new_box_value%1#0"
+      ]
+    },
+    "192": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "193": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "194": {
+      "subroutine": "smart_contracts.counter.contract.ClubVoting.vote",
+      "params": {
+        "name#0": "bytes",
+        "position#0": "bytes"
+      },
+      "block": "vote",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "197": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)"
+      ]
+    },
+    "199": {
+      "op": "bytec_1 // \"President\"",
+      "defined_out": [
+        "\"President\"",
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)",
+        "\"President\""
+      ]
+    },
+    "200": {
+      "op": "==",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "201": {
+      "op": "bz vote_else_body@2",
+      "stack_out": []
+    },
+    "204": {
+      "op": "bytec_2 // \"presidents\"",
+      "defined_out": [
+        "\"presidents\""
+      ],
+      "stack_out": [
+        "\"presidents\""
+      ]
+    },
+    "205": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "\"presidents\"",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "\"presidents\"",
+        "name#0 (copy)"
+      ]
+    },
+    "207": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "208": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%1#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%1#0 (copy)"
+      ]
+    },
+    "209": {
+      "op": "box_get",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "210": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "211": {
+      "op": "btoi",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value_converted%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_exists%0#0",
+        "maybe_value_converted%0#0"
+      ]
+    },
+    "212": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value_converted%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "213": {
+      "error": "check self.presidents entry exists",
+      "op": "assert // check self.presidents entry exists",
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value_converted%0#0"
+      ]
+    },
+    "214": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "maybe_value_converted%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "maybe_value_converted%0#0",
+        "1"
+      ]
+    },
+    "215": {
+      "op": "+",
+      "defined_out": [
+        "new_box_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "new_box_value%0#0"
+      ]
+    },
+    "216": {
+      "op": "itob",
+      "defined_out": [
+        "new_box_value%1#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "new_box_value%1#0"
+      ]
+    },
+    "217": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "218": {
+      "block": "vote_after_if_else@5",
+      "stack_in": [],
+      "retsub": true,
+      "op": "retsub"
+    },
+    "219": {
+      "block": "vote_else_body@2",
+      "stack_in": [],
+      "op": "frame_dig -1",
+      "defined_out": [
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)"
+      ]
+    },
+    "221": {
+      "op": "bytec_3 // \"Secretary\"",
+      "defined_out": [
+        "\"Secretary\"",
+        "position#0 (copy)"
+      ],
+      "stack_out": [
+        "position#0 (copy)",
+        "\"Secretary\""
+      ]
+    },
+    "222": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "223": {
+      "op": "bz vote_after_if_else@5",
+      "stack_out": []
+    },
+    "226": {
+      "op": "bytec 4 // \"secretaries\"",
+      "defined_out": [
+        "\"secretaries\""
+      ],
+      "stack_out": [
+        "\"secretaries\""
+      ]
+    },
+    "228": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "\"secretaries\"",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "\"secretaries\"",
+        "name#0 (copy)"
+      ]
+    },
+    "230": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "231": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ]
+    },
+    "232": {
+      "op": "box_get",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "233": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "234": {
+      "op": "btoi",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value_converted%1#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_exists%1#0",
+        "maybe_value_converted%1#0"
+      ]
+    },
+    "235": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value_converted%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "236": {
+      "error": "check self.secretaries entry exists",
+      "op": "assert // check self.secretaries entry exists",
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value_converted%1#0"
+      ]
+    },
+    "237": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "maybe_value_converted%1#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value_converted%1#0",
+        "1"
+      ]
+    },
+    "238": {
+      "op": "+",
+      "defined_out": [
+        "new_box_value%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "new_box_value%2#0"
+      ]
+    },
+    "239": {
+      "op": "itob",
+      "defined_out": [
+        "new_box_value%3#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "new_box_value%3#0"
+      ]
+    },
+    "240": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "241": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}

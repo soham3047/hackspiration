@@ -1,0 +1,188 @@
+#pragma version 10
+#pragma typetrack false
+
+// smart_contracts.counter.contract.ClubVoting.__algopy_entrypoint_with_init() -> uint64:
+main:
+    intcblock 1 0
+    bytecblock "admin" "President" "presidents" "Secretary" "secretaries"
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // smart_contracts/counter/contract.py:26
+    // self.admin = Global.creator_address
+    bytec_0 // "admin"
+    global CreatorAddress
+    app_global_put
+
+main_after_if_else@2:
+    // smart_contracts/counter/contract.py:22
+    // class ClubVoting(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@7
+    pushbytess 0x9039b6e2 0xe9d83c6d // method "add_candidate(string,string)void", method "vote(string,string)void"
+    txna ApplicationArgs 0
+    match main_add_candidate_route@5 main_vote_route@6
+
+main_after_if_else@9:
+    // smart_contracts/counter/contract.py:22
+    // class ClubVoting(ARC4Contract):
+    intc_1 // 0
+    return
+
+main_vote_route@6:
+    // smart_contracts/counter/contract.py:38
+    // @arc4.abimethod
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/counter/contract.py:22
+    // class ClubVoting(ARC4Contract):
+    txna ApplicationArgs 1
+    extract 2 0
+    txna ApplicationArgs 2
+    extract 2 0
+    // smart_contracts/counter/contract.py:38
+    // @arc4.abimethod
+    callsub vote
+    intc_0 // 1
+    return
+
+main_add_candidate_route@5:
+    // smart_contracts/counter/contract.py:28
+    // @arc4.abimethod
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/counter/contract.py:22
+    // class ClubVoting(ARC4Contract):
+    txna ApplicationArgs 1
+    extract 2 0
+    txna ApplicationArgs 2
+    extract 2 0
+    // smart_contracts/counter/contract.py:28
+    // @arc4.abimethod
+    callsub add_candidate
+    intc_0 // 1
+    return
+
+main_bare_routing@7:
+    // smart_contracts/counter/contract.py:22
+    // class ClubVoting(ARC4Contract):
+    txn OnCompletion
+    bnz main_after_if_else@9
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_0 // 1
+    return
+
+
+// smart_contracts.counter.contract.ClubVoting.add_candidate(name: bytes, position: bytes) -> void:
+add_candidate:
+    // smart_contracts/counter/contract.py:28-29
+    // @arc4.abimethod
+    // def add_candidate(self, name: String, position: String) -> None:
+    proto 2 0
+    // smart_contracts/counter/contract.py:30-31
+    // # ✅ FIX: Use Txn.sender instead of Global.caller
+    // assert Txn.sender == self.admin, "Only the admin can add candidates"
+    txn Sender
+    intc_1 // 0
+    bytec_0 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only the admin can add candidates
+    // smart_contracts/counter/contract.py:33
+    // if position == String("President"):
+    frame_dig -1
+    bytec_1 // "President"
+    ==
+    bz add_candidate_else_body@2
+    // smart_contracts/counter/contract.py:34
+    // self.presidents[name] = UInt64(0)
+    bytec_2 // "presidents"
+    frame_dig -2
+    concat
+    intc_1 // 0
+    itob
+    box_put
+
+add_candidate_after_if_else@5:
+    retsub
+
+add_candidate_else_body@2:
+    // smart_contracts/counter/contract.py:35
+    // elif position == String("Secretary"):
+    frame_dig -1
+    bytec_3 // "Secretary"
+    ==
+    bz add_candidate_after_if_else@5
+    // smart_contracts/counter/contract.py:36
+    // self.secretaries[name] = UInt64(0)
+    bytec 4 // "secretaries"
+    frame_dig -2
+    concat
+    intc_1 // 0
+    itob
+    box_put
+    retsub
+
+
+// smart_contracts.counter.contract.ClubVoting.vote(name: bytes, position: bytes) -> void:
+vote:
+    // smart_contracts/counter/contract.py:38-39
+    // @arc4.abimethod
+    // def vote(self, name: String, position: String) -> None:
+    proto 2 0
+    // smart_contracts/counter/contract.py:40
+    // if position == String("President"):
+    frame_dig -1
+    bytec_1 // "President"
+    ==
+    bz vote_else_body@2
+    // smart_contracts/counter/contract.py:41
+    // self.presidents[name] += 1
+    bytec_2 // "presidents"
+    frame_dig -2
+    concat
+    dup
+    box_get
+    swap
+    btoi
+    swap
+    assert // check self.presidents entry exists
+    intc_0 // 1
+    +
+    itob
+    box_put
+
+vote_after_if_else@5:
+    retsub
+
+vote_else_body@2:
+    // smart_contracts/counter/contract.py:42
+    // elif position == String("Secretary"):
+    frame_dig -1
+    bytec_3 // "Secretary"
+    ==
+    bz vote_after_if_else@5
+    // smart_contracts/counter/contract.py:43
+    // self.secretaries[name] += 1
+    bytec 4 // "secretaries"
+    frame_dig -2
+    concat
+    dup
+    box_get
+    swap
+    btoi
+    swap
+    assert // check self.secretaries entry exists
+    intc_0 // 1
+    +
+    itob
+    box_put
+    retsub
